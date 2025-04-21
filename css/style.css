@@ -1,0 +1,466 @@
+/* ===================== ROOT VARIABLE ===================== */
+:root {
+  --primary: #4dc45d; /* Warna utama (hijau) untuk elemen penting */
+  --bg: #000000; /* Warna latar belakang utama (hitam) */
+}
+
+/* ===================== RESET DAN NORMALISASI CSS ===================== */
+* {
+  margin: 0; /* Hilangkan margin bawaan */
+  padding: 0; /* Hilangkan padding bawaan */
+  box-sizing: border-box; /* Ukuran elemen termasuk padding dan border */
+  text-decoration: none; /* Hilangkan underline pada link */
+  border: none; /* Hilangkan border default */
+  outline: none; /* Hilangkan garis fokus default */
+}
+
+/* ======PERPIDAHAN ATAU TRANSISI DARI SETIAP HALAMAN=======*/
+html {
+  scroll-behavior: smooth;
+}
+/* ===================== BODY UTAMA ===================== */
+body {
+  font-family: "Poppins", sans-serif; /* Font utama */
+  background-color: var(--bg); /* Warna background dari variable */
+  color: #fff; /* Warna teks utama putih */
+}
+
+/* ===================== NAVBAR (HEADER ATAS) ===================== */
+.navbar {
+  display: flex; /* Susun elemen horizontal */
+  justify-content: space-between; /* Spasi antara logo dan menu */
+  align-items: center; /* Vertikal tengah */
+  padding: 1.4rem 7%; /* Spasi dalam navbar */
+  background-color: rgb(0, 0, 0); /* Background transparan */
+  border-bottom: 1.5px solid #141d15; /* Garis bawah navbar */
+  position: fixed; /* Tetap di atas saat discroll */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Prioritas tampilan tertinggi */
+}
+
+/* Logo Navbar */
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+.navbar .navbar-logo span {
+  color: var(--primary); /* Highlight warna hijau */
+}
+
+/* Container Link Navigasi */
+.navbar .navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Link Navigasi */
+.navbar .navbar-nav a {
+  color: #fff;
+  font-size: 1.3rem;
+  margin: 0 1rem;
+  position: relative;
+}
+
+/* Efek garis bawah saat hover */
+.navbar .navbar-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  transform: scaleX(0); /* Awalnya tidak terlihat */
+  transition: transform 0.3s ease-in-out;
+  transform-origin: left;
+}
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(1); /* Muncul saat hover */
+}
+
+/* Ikon tambahan seperti user, keranjang */
+.navbar .navbar-extra a {
+  color: #fff;
+  margin-left: 1rem;
+}
+.navbar .navbar-extra a:hover {
+  color: var(--primary); /* Warna saat hover */
+}
+
+/* Tombol Hamburger untuk Mobile */
+#hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+/* ===================== HERO SECTION ===================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("../img/evgarden.jpg.jfif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+}
+
+.hero .content h1 {
+  font-size: 3.2em;
+  color: #0fd45a;
+  text-shadow: 1px 1px 3px rgba(17, 170, 3, 0.9);
+  line-height: 1.2;
+}
+.hero .content h1 span {
+  color: var(--primary); /* Highlight teks */
+}
+
+.hero .content p {
+  font-size: 1rem;
+  margin-top: 0.1rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px rgba(34, 238, 15, 0.7);
+}
+
+.hero .content .cta {
+  margin: 1rem 0;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: var(--primary);
+  border-radius: 10rem;
+  box-shadow: 1px 1px 8px rgb(70, 139, 79);
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(1, 1, 3, 1) 3%,
+    rgba(255, 255, 255, 0) 25%
+  );
+}
+
+/* ===================== SECTION ABOUT ===================== */
+.about,
+.menu,
+.contact {
+  background-color: #000000;
+  padding: 6rem 7% 1.4rem;
+}
+
+.about h2,
+.menu h2,
+.contact h2 {
+  color: var(--primary);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+.about h2 span,
+.menu h2 span,
+.contact h2 span {
+  color: white; /* Teks span dalam judul */
+}
+
+.about .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.about h2,
+.menu h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 7rem;
+  padding: 0 1rem;
+  font-weight: 600;
+}
+
+/* Paragraf dalam About */
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Bagian gambar dan teks dalam about */
+.about .row {
+  display: flex;
+}
+
+.about .row .about-img {
+  flex: 1 1 45rem;
+}
+.about .row .about-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.about .row .content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+}
+.about .row .content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.about .row .content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-weight: 100;
+}
+
+/* ===================== SECTION MENU ===================== */
+.menu,
+.contact,
+.row,
+.contact-info {
+  scroll-margin-top: 8rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem 7% 1.4rem;
+  background-color: #000000;
+  color: white;
+}
+
+.menu h2,
+.contact h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.menu h2 span {
+  color: #ffcc00; /* contoh highlight warna span */
+}
+
+.menu p,
+.contact p {
+  text-align: center;
+  max-width: 30rem;
+  margin: 0 auto 2rem auto;
+  font-weight: 100;
+  line-height: 1.6;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 200px;
+  color: white;
+}
+
+.menu-item img {
+  max-width: 150px;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+}
+
+.menu-item h3 {
+  margin: 0.5rem 0 0.2rem 0;
+}
+
+.menu-item p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* contact */
+.contact .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color: #000000;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+}
+.contact .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+  height: 300px;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+.contact .row form {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+  text-align: center;
+  color: white;
+}
+.contact .row form .input-grup {
+  display: flex;
+  padding-left: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: #141d15;
+  border: 1px solid #ccc;
+}
+.contact .row form .input-grup input {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+}
+.contact .row form .btn {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #fff;
+  background-color: var(--primary);
+  cursor: pointer;
+}
+
+/* contact end */
+
+/* footer */
+
+footer {
+  background-color: var(--bg);
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+footer .socials,
+footer .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+footer .socials a,
+footer .links a {
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer .socials a:hover,
+footer .links a:hover {
+  color: var(--primary);
+}
+
+footer .credit {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+footer .credit a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* ===================== RESPONSIVE DESIGN ===================== */
+
+/* Laptop ukuran max 1366px */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* Tablet max 768px */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    transition: right 0.3s ease-in-out;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar .navbar-nav a {
+    color: #333;
+    margin: 1rem 0;
+    font-size: 1.6rem;
+  }
+
+  .navbar .navbar-nav.show {
+    right: 0;
+  }
+  .contact .row {
+    flex-wrap: wrap;
+  }
+  .contact .row .map {
+    height: 30rem;
+  }
+  .contact .row form {
+    padding-top: 0;
+  }
+}
+
+/* Mobile max 450px */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+
+  .about {
+    padding: 6rem 7% 1.4rem;
+  }
+}
+
+/* Navbar Mobile Background */
+.navbar-mobile {
+  background-color: rgb(252, 255, 255);
+}
