@@ -305,11 +305,16 @@ body {
   flex: 1 1 45rem;
 }
 .about .row .about-img img {
-  width: 100%;
+  width: 70%;
   height: auto;
   border-radius: 1rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease; /* ini untuk buat efek halus saat hover */
 }
+.about .row .about-img img:hover {
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
 
 .about .row .content {
   flex: 1 1 35rem;
@@ -440,8 +445,11 @@ body {
   border-radius: 1rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   margin-bottom: 1rem;
+  transition: transform 0.5s ease; /* ini untuk buat efek halus saat hover */
 }
-
+  .menu-item:hover {
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
 .menu-item h3 {
   margin: 0.5rem 0 0.2rem 0;
 }
