@@ -336,11 +336,13 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   gap: 1.5rem;
   margin-top: 4rem;
+  padding: 0 1;
 }
 .products .product-card {
   text-align: center;
   border: 1px solid #ccc;
   padding: 2rem;
+  
 }
 .products .product-icons {
   display: flex;
@@ -364,9 +366,11 @@ body {
 }
 .products .product-image {
   padding: 1rem 0;
+  
 }
 .products .product-image img {
   height: 18rem;
+  
 }
 .products .product-content h3 {
   font-size: 1.5rem;
@@ -612,6 +616,11 @@ footer .credit a {
   font-size: 1.2rem;
   line-height: 1.6;
   margin-top: 1.2rem;
+  font-weight: bold;
+}
+.modal-content h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 .modal-content a {
   display: flex;

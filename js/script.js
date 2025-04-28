@@ -141,3 +141,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  // Ambil tombol eye dan modal
+  const detailButtons = document.querySelectorAll(".item-detail-button-2");
+  const modal = document.getElementById("item-detail-modal-2");
+  const closeModalButton = modal.querySelector(".close-icon");
+
+  // Klik tombol eye untuk membuka modal
+  detailButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      modal.style.display = "block"; // Tampilkan modal
+    });
+  });
+
+  // Klik tombol tutup untuk menutup modal
+  closeModalButton.addEventListener("click", function (e) {
+    e.preventDefault();
+    modal.style.display = "none"; // Sembunyikan modal
+  });
+
+  // Klik di luar modal untuk menutup
+  window.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none"; // Sembunyikan modal
+    }
+  });
+});
