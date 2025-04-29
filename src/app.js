@@ -4,9 +4,9 @@ document.addEventListener('alpine:init', () => {
             { id: 1, name: 'Paket A', Image: 'catering1.jpg', price: 99000 },
             { id: 2, name: 'Paket B', Image: 'catering2.jpg', price: 115000 },
             { id: 3, name: 'Paket C', Image: 'catering3.jpg', price: 130000 },
-            { id: 3, name: 'CiaTok 1', Image: 'ciaTok.jpg', price: 2800000 },
-            { id: 3, name: 'CiaTok2', Image: 'CiaTok.jpg', price: 3000000 },
-            { id: 3, name: 'Ciatok3', Image: 'CiaTok.jpg', price: 3800000 },
+            { id: 3, name: 'CiaTok 1', Image: 'ciatok.jpg', price: 280000 },
+            { id: 3, name: 'CiaTok2', Image: 'ciatok.jpg', price: 300000 },
+            { id: 3, name: 'Ciatok3', Image: 'ciatok.jpg', price: 380000 },
 
         ],
     }));
