@@ -24,7 +24,7 @@
     <!-- alpineJs -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- app -->
-     <script src="src/app.js"></script>
+     <script src="src/app.js" async></script>
   </head>
 
   <body>
@@ -90,7 +90,8 @@
           <input type="number" mame="phone" id="phone" autocomplete="off">
         </label>
 
-        <button class="checkout-button" type="submit" id="checkout-button" value="checout">Checkout</button>
+        <button class="checkout-button disabled" type="submit" id="checkout-button" 
+        value="checout">Checkout</button>
       </form>
      </div>
     </div>
