@@ -4,31 +4,27 @@ document.addEventListener("alpine:init", () => {
       { id: 1, name: "Paket A", Image: "catering1.jpg", price: 99000 },
       { id: 2, name: "Paket B", Image: "catering2.jpg", price: 115000 },
       { id: 3, name: "Paket C", Image: "catering3.jpg", price: 130000 },
-      { id: 3, name: "CiaTok 1", Image: "ciatok.jpg", price: 280000 },
-      { id: 3, name: "CiaTok2", Image: "ciatok.jpg", price: 300000 },
-      { id: 3, name: "Ciatok3", Image: "ciatok.jpg", price: 380000 },
+      { id: 4, name: "CiaTok 1", Image: "ciatok.jpg", price: 280000 },
+      { id: 5, name: "CiaTok 2", Image: "ciatok.jpg", price: 300000 },
+      { id: 6, name: "CiaTok 3", Image: "ciatok.jpg", price: 380000 },
     ],
   }));
+
   Alpine.store("cart", {
     items: [],
     total: 0,
     quantity: 0,
     add(newItem) {
-      // pengencekan apakah item sudah ada di cart
       const cartItem = this.items.find((item) => item.id === newItem.id);
-      // jika ada / cart masih kosong
       if (!cartItem) {
         this.items.push({ ...newItem, quantity: 1, total: newItem.price });
         this.quantity++;
         this.total += newItem.price;
       } else {
-        // jika sudah ada di cart, cek apakah barang sama atau tidak dengan yang ada di cart
         this.items = this.items.map((item) => {
-          // jika barang berbeda
           if (item.id !== cartItem.id) {
             return item;
           } else {
-            // jika barang sudah ada di cart, tambah quantity dan total
             item.quantity++;
             item.total = item.price * item.quantity;
             this.quantity++;
@@ -37,16 +33,11 @@ document.addEventListener("alpine:init", () => {
           }
         });
       }
-      console.log(this.total);
     },
     remove(id) {
-      // ambil item yang akan dihapus berasarkan id
       const cartItem = this.items.find((item) => item.id === id);
-      // jika item lebih dari 1
       if (cartItem.quantity > 1) {
-        // telusuri satu persatu item yang ada di cart
         this.items = this.items.map((item) => {
-          // jika barang yang buka di klik
           if (item.id !== id) {
             return item;
           } else {
@@ -57,8 +48,7 @@ document.addEventListener("alpine:init", () => {
             return item;
           }
         });
-      } else if (cartItem.quantity === 1) {
-        // jika item barang tinggal 1
+      } else {
         this.items = this.items.filter((item) => item.id !== id);
         this.quantity--;
         this.total -= cartItem.price;
@@ -67,53 +57,72 @@ document.addEventListener("alpine:init", () => {
   });
 });
 
-// form validation
+// --- Form Validation ---
 const checkoutButton = document.querySelector(".checkout-button");
+const form = document.querySelector("#checkoutForm");
 checkoutButton.disabled = true;
 
-const form = document.querySelector("#checkoutForm");
-
 form.addEventListener("keyup", function () {
+  let isValid = true;
   for (let i = 0; i < form.elements.length; i++) {
-    if (form.elements[i].value.length !== 0) {
-      checkoutButton.classList.remove("disabled");
-      checkoutButton.classList.add("disabled");
-    } else {
-      return false;
+    if (form.elements[i].value.trim() === "") {
+      isValid = false;
+      break;
     }
   }
-  checkoutButton.disabled = false;
-  checkoutButton.classList.remove("disabled");
+
+  checkoutButton.disabled = !isValid;
+  if (isValid) {
+    checkoutButton.classList.remove("disabled");
+  } else {
+    checkoutButton.classList.add("disabled");
+  }
 });
 
-// kirim data ketika tombol reservasi di klik
+// --- Handle Checkout Button ---
 checkoutButton.addEventListener("click", function (e) {
   e.preventDefault();
-  const formData = new FormData(form);
-  const data = new URLSearchParams(formData);
-  const objdata = Object.fromEntries(data);
+
+  const objData = {
+    name: form.elements["name"].value,
+    room: form.elements["room"].value,
+    date: form.elements["date"].value,
+    time: form.elements["time"].value,
+    event: form.elements["event"].value,
+    phone: form.elements["phone"].value,
+    items: JSON.stringify(Alpine.store("cart").items),
+    total: Alpine.store("cart").total,
+  };
+
   const message = formatMessage(objData);
-  console.log(objData);
+  console.log(message);
+
+  // Kirim ke WhatsApp (ganti nomor di bawah ini)
+  window.open(
+    `https://wa.me/6282278466698?text=${encodeURIComponent(message)}`
+  );
 });
 
-// kirim data ke server seperti wa atau email
+// --- Format Pesan WhatsApp ---
 const formatMessage = (obj) => {
   return `Data Customer
-nama : ${obj.name}
-room : ${obj.room}
-tanggal : ${obj.date}
-jam : ${obj.time}
-event : ${obj.event}
-phone : ${obj.phone}
+Nama    : ${obj.name}
+Room    : ${obj.room}
+Tanggal : ${obj.date}
+Jam     : ${obj.time}
+Event   : ${obj.event}
+Phone   : ${obj.phone}
 
-Data Pesanan
-${JSON.parse(obj.items).map(
-  (item) => `${item.name} : (${item.quantity} x ${rupiah(item.total)}) \n`
-)}
+Data Pesanan:
+${JSON.parse(obj.items)
+  .map((item) => `${item.name} : (${item.quantity} x ${rupiah(item.total)})`)
+  .join("\n")}
+
 TOTAL: ${rupiah(obj.total)}
 Terima Kasih.`;
 };
-// perpindahan mata uang
+
+// --- Format Rupiah ---
 const rupiah = (number) => {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
