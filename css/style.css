@@ -396,6 +396,7 @@ body {
   font-size: 1.1rem;
   line-height: 1.8;
   font-weight: 100;
+  text-align: justify;
 }
 /* products section */
 .products .row {
