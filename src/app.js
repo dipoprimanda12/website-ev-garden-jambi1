@@ -86,6 +86,33 @@ form.addEventListener("keyup", function () {
   checkoutButton.classList.remove("disabled");
 });
 
+// kirim data ketika tombol reservasi di klik
+checkoutButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const data = new URLSearchParams(formData);
+  const objdata = Object.fromEntries(data);
+  const message = formatMessage(objData);
+  console.log(objData);
+});
+
+// kirim data ke server seperti wa atau email
+const formatMessage = (obj) => {
+  return `Data Customer
+nama : ${obj.name}
+room : ${obj.room}
+tanggal : ${obj.date}
+jam : ${obj.time}
+event : ${obj.event}
+phone : ${obj.phone}
+
+Data Pesanan
+${JSON.parse(obj.items).map(
+  (item) => `${item.name} : (${item.quantity} x ${rupiah(item.total)}) \n`
+)}
+TOTAL: ${rupiah(obj.total)}
+Terima Kasih.`;
+};
 // perpindahan mata uang
 const rupiah = (number) => {
   return new Intl.NumberFormat("id-ID", {
