@@ -385,21 +385,31 @@
         allowfullscreen="" loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade" class="map">
     </iframe>
-        <form action="">
-            <div class="input-grup">
-                <i data-feather="user"></i>
-                <input type="text" placeholder="nama">
-            </div>
-            <div class="input-grup">
-                <i data-feather="mail"></i>
-                <input type="text" placeholder="email">
-            </div>
-            <div class="input-grup">
-                <i data-feather="phone"></i>
-                <input type="text" placeholder="nomor telepon">
-            </div>
-            <button type="submit" class="btn">kirim pesan</button>
-        </form>
+    <div x-data="{
+      nama: '',
+      email: '',
+      telepon: '',
+      kirimPesan() {
+          const pesan = Halo, saya ingin menghubungi anda.%0ANama: ${this.nama}%0AEmail: ${this.email}%0ATelepon: ${this.telepon};
+          window.open(https://wa.me/082939182938192?text=${pesan}, '_blank');
+      }
+  }">
+      <form @submit.prevent="kirimPesan">
+          <div class="input-grup">
+              <i data-feather="user"></i>
+              <input type="text" placeholder="nama" x-model="nama">
+          </div>
+          <div class="input-grup">
+              <i data-feather="mail"></i>
+              <input type="text" placeholder="email" x-model="email">
+          </div>
+          <div class="input-grup">
+              <i data-feather="phone"></i>
+              <input type="text" placeholder="nomor telepon" x-model="telepon">
+          </div>
+          <button type="submit" class="btn">kirim pesan</button>
+      </form>
+  </div>
     <!-- kontak end -->
 <!--  -->
 <!--  -->
@@ -408,7 +418,7 @@
 
 <footer>
     <div class="socials">
-      <a href="https://www.instagram.com/evgardenjambi" target="_blank">
+      <a href="https://www.instagram.com/dipoprimanda" target="_blank">
         <i data-feather="instagram"></i>
       <a href=""><i data-feather="twitter"></i></a>
         <a href=""><i data-feather="facebook"></i></a>
