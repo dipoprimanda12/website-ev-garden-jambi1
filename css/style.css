@@ -204,6 +204,8 @@ body {
   border-top: 1px dashed black;
   margin-top: 1rem;
   padding: 1rem;
+  overflow: scroll;
+
 }
 .form-container h5 {
   text-align: center;

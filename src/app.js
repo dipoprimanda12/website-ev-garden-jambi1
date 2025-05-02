@@ -99,7 +99,7 @@ checkoutButton.addEventListener("click", function (e) {
 
   // Kirim ke WhatsApp (ganti nomor di bawah ini)
   window.open(
-    `https://wa.me/6282278466698?text=${encodeURIComponent(message)}`
+    `https://wa.me/62xxxxxxxxxxxxxx?text=${encodeURIComponent(message)}`
   );
 });
 
