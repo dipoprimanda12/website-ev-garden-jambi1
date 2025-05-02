@@ -130,3 +130,22 @@ const rupiah = (number) => {
     minimumFractionDigits: 0,
   }).format(number);
 };
+// format kirim pesan ke whatsapp
+document.addEventListener("alpine:init", () => {
+  Alpine.data("formHandler", () => ({
+    name: "",
+    email: "",
+    phone: "",
+
+    kirimPesan() {
+      if (!this.name || !this.email || !this.phone) {
+        alert("Semua field harus diisi.");
+        return;
+      }
+
+      const message = `Nama: ${this.name}%0AEmail: ${this.email}%0ANomor Telepon: ${this.phone}`;
+      const whatsappLink = `https://wa.me/6289602799141?text=${encodeURIComponent(message)}`;
+      window.open(whatsappLink, "_blank");
+    },
+  }));
+});

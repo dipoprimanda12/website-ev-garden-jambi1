@@ -574,7 +574,15 @@ body {
   background-color: var(--primary);
   cursor: pointer;
 }
-
+.contact .checkout-button-pesan {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #fff;
+  background-color: var(--primary);
+  cursor: pointer;
+}
 /* contact end */
 
 /* footer */

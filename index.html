@@ -390,8 +390,9 @@
       email: '',
       telepon: '',
       kirimPesan() {
-          const pesan = Halo, saya ingin menghubungi anda.%0ANama: ${this.nama}%0AEmail: ${this.email}%0ATelepon: ${this.telepon};
-          window.open(https://wa.me/082939182938192?text=${pesan}, '_blank');
+          const pesan = `Halo, saya ingin menghubungi anda.%0ANama: ${this.nama}%0AEmail: ${this.email}%0ATelepon: ${this.telepon}`;
+          const url = `https://wa.me/6282939182938192?text=${pesan}`;
+          window.open(url, '_blank');
       }
   }">
       <form @submit.prevent="kirimPesan">
@@ -408,8 +409,8 @@
               <input type="text" placeholder="nomor telepon" x-model="telepon">
           </div>
           <button type="submit" class="btn">kirim pesan</button>
-      </form>
-  </div>
+      </form>
+  </div>
     <!-- kontak end -->
 <!--  -->
 <!--  -->
@@ -418,7 +419,7 @@
 
 <footer>
     <div class="socials">
-      <a href="https://www.instagram.com/dipoprimanda" target="_blank">
+      <a href="https://www.instagram.com/dipoprimanda--" target="_blank">
         <i data-feather="instagram"></i>
       <a href=""><i data-feather="twitter"></i></a>
         <a href=""><i data-feather="facebook"></i></a>
