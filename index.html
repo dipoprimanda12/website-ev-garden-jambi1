@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ev garden jambi</title>
+    <title>EV Garden jambi</title>
 
     <!-- Import Google Fonts (Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,7 +30,7 @@
   <body>
     <!-- Navbar awal -->
     <nav class="navbar"x-data>
-      <a href="#" class="navbar-logo">ev<span>garden</span></a>
+      <a href="#" class="navbar-logo">EV<span>Garden</span></a>
       <div class="navbar-nav">
         <a href="#home">home</a>
         <a href="#about">tentang kami</a>
@@ -44,7 +44,7 @@
           <i data-feather="shopping-cart"></i>
           <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
         </a>
-        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        <a href="#!" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
       <div class="search-form">
         <input type="text" id="search-box" placeholder="search here..." />
@@ -295,7 +295,7 @@
           <use href="img/feather-sprite.svg#shopping-cart" />
         </svg>  
         </a>
-        <a href="#" class="item-detail-button">
+        <a href="#!" @click.prevent="$store.modal.preview(item)">
           <svg
           width="24"
           height="24"
@@ -391,7 +391,7 @@
       telepon: '',
       kirimPesan() {
           const pesan = `Halo, saya ingin menghubungi anda.%0ANama: ${this.nama}%0AEmail: ${this.email}%0ATelepon: ${this.telepon}`;
-          const url = `https://wa.me/6282939182938192?text=${pesan}`;
+          const url = `https://wa.me/6289602799141?text=${pesan}`;
           window.open(url, '_blank');
       }
   }">
@@ -439,26 +439,23 @@
 <!--  -->
 <!--  -->
 <!--  -->
- <!-- Modal untuk detail produk -->
-  <!-- detail modal produk 1 -->
- <div class="modal" id="item-detail-modal">
+
+<!-- Tombol untuk membuka modal -->
+
+  <div class="modal" id="item-detail-modal">
   <div class="modal-container">
-    <a href="#" class="close-icon"><i data-feather="x"></i></a>
+    <button class="close-icon" @click="closeModal">
+      <i data-feather="x"></i>
+    </button>
     <div class="modal-content">
-      <img src="img/catering/catering1.jpg" alt="produk 1">
+      <img :src="`img/catering/${selectedItem.Image}`" :alt="selectedItem.name" />
       <div class="product-content">
-        <h3>paket catering A</h3>
-        <p>terdiri dari menu </p>
-            <ul>
-              <li>1. nasi putih</li>
-              <li>2. ayam kacang mete</li>
-              <li>3. dendeng batokok</li>
-              <li>4. sambel kentang</li>
-              <li>5. sayur</li>
-              <li>6. buah</li>
-              <li>7. kerupuk</li>
-              <li>8. air mineral</li>
-            </ul>
+        <h3 x-text="selectedItem.name"></h3>
+        <p>terdiri dari menu:</p>
+        <ul>
+
+          
+        </ul>
         <div class="product-stars">
           <i data-feather="star" class="star-full"></i>
           <i data-feather="star" class="star-full"></i>
@@ -466,55 +463,29 @@
           <i data-feather="star" class="star-full"></i>
           <i data-feather="star" class="star-full"></i>
         </div>
-        <div class="product-price">IDR 99K</div>
-        <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
+        <div class="product-price" x-text="`IDR ${selectedItem.price}`"></div>
+        <a href="#" @click.prevent="$store.cart.add(selectedItem)">
+          <i data-feather="shopping-cart"></i> <span>add to cart</span>
+        </a>
       </div>
-    </div> 
+    </div>
   </div>
-</div> 
-    <!-- Modal untuk detail produk 2 -->
-    <div class="modal" id="item-detail-modal-2">
-      <div class="modal-container">
-        <a href="#" class="close-icon"><i data-feather="x"></i></a>
-        <div class="modal-content">
-          <img src="img/catering/catering2.jpg" alt="produk 1">
-          <div class="product-content">
-            <h3>paket catering B</h3>
-            <p>terdiri dari menu </p>
-            <ul>
-              <li>1. nasi putih</li>
-              <li>2. ayam kacang mete</li>
-              <li>3. gurami asam manis</li>
-              <li>4. dendeng batokok</li>
-              <li>5. sambel kentang</li>
-              <li>6. sayur</li>
-              <li>7. buah</li>
-              <li>8. kerupuk</li>
-              <li>9. air mineral</li>
-            </ul>
-            <div class="product-stars">
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-              <i data-feather="star" class="star-full"></i>
-            </div>
-            <div class="product-stars">
-              <div class="product-price">IDR 115K</div>
-        <a href="#"><i data-feather="shopping-cart"></i> <span>add to cart</span></a>
-      </div>
-    </div> 
-  </div>
-</div> 
+</div>
+</div>
+
+
+
 <!-- Modal akhir -->
     <!-- Aktifkan Feather Icons -->
     <script>
       feather.replace();
+
     </script>
 
     <!-- Import JavaScript lokal -->
     <script src="src/app.js"></script>
 <script src="js/script.js"></script>
+    
 
   </body>
 </html>

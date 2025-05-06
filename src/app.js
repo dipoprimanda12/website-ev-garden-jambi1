@@ -1,7 +1,14 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("products", () => ({
     items: [
-      { id: 1, name: "Paket A", Image: "catering1.jpg", price: 99000 },
+      {
+        id: 1,
+        name: "Paket A",
+        Image: "catering1.jpg",
+        price: 99000,
+        menu:["Nasi Goreng","Ayam Penyet","Sate Ayam","Tahu Tempe","Kerupuk"]
+
+      },
       { id: 2, name: "Paket B", Image: "catering2.jpg", price: 115000 },
       { id: 3, name: "Paket C", Image: "catering3.jpg", price: 130000 },
       { id: 4, name: "CiaTok 1", Image: "ciatok.jpg", price: 280000 },
@@ -9,6 +16,19 @@ document.addEventListener("alpine:init", () => {
       { id: 6, name: "CiaTok 3", Image: "ciatok.jpg", price: 380000 },
     ],
   }));
+  Alpine.store("modal", {
+ preview(item) {
+  const modal = document.getElementById("item-detail-modal");
+  modal.style.display = "block";
+  const closeButton = modal.querySelector(".close-icon");
+  closeButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.style.display = "none";
+  
+  });
+}
+  }
+  )
 
   Alpine.store("cart", {
     items: [],
@@ -144,7 +164,9 @@ document.addEventListener("alpine:init", () => {
       }
 
       const message = `Nama: ${this.name}%0AEmail: ${this.email}%0ANomor Telepon: ${this.phone}`;
-      const whatsappLink = `https://wa.me/6289602799141?text=${encodeURIComponent(message)}`;
+      const whatsappLink = `https://wa.me/6289602799141?text=${encodeURIComponent(
+        message
+      )}`;
       window.open(whatsappLink, "_blank");
     },
   }));
