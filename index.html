@@ -14,6 +14,9 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <!-- icon dari font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
     <!-- Import Feather Icons untuk ikon -->
     <script src="https://unpkg.com/feather-icons"></script>
@@ -34,28 +37,30 @@
       <div class="navbar-nav">
         <a href="#home">home</a>
         <a href="#about">tentang kami</a>
-        <a href="#menu">manu saung</a>
-        <a href="#products">paket catering</a>
+        <!-- <a href="#menu">manu saung</a> -->
+        <a href="#products">paket</a>
         <a href="#contact">kontak Reservasi</a>
       </div>
       <div class="navbar-extra">
-        <a href="#" id="search"><i data-feather="search"></i></a>
+        <a href="#" id="search">
+          <i data-feather=""></i>
+        </a>
         <a href="#" id="shopping-cart-button">
           <i data-feather="shopping-cart"></i>
           <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
         </a>
         <a href="#!" id="hamburger-menu"><i data-feather="menu"></i></a>
       </div>
-      <div class="search-form">
+      <!-- <div class="search-form">
         <input type="text" id="search-box" placeholder="search here..." />
         <label for="search-box"><i data-feather="search"></i></label>
-      </div>
+      </div> -->
       
       <!-- bagian kranjang belanja -->
     <div class="shopping-card">
       <template x-for="(item, index) in $store.cart.items" x-keys="index">
         <div class="card-item">
-          <img :src="`img/catering/${item.Image}`" :alt="item.name">
+          <img :src="`${item.Image}`" :alt="item.name">
           <div class="item-detail">
             <h3 x-text="item.name"></h3>
             <div class="item-price">
@@ -122,13 +127,9 @@
     <!-- Bagian Hero -->
     <section class="hero" id="home">
       <main class="content">
-        <h1>Ayo Wujudkan Event Impian Anda Bersama Kami</h1>
+        <h1>Wujudkan Momen Spesial Anda di EV Garden</h1>
         <p>
-          EV Garden adalah sebuah restoran dan venue acara yang berlokasi di Jl.
-          Marsda Abdurahman Saleh, Paal Merah, Kecamatan Jambi Selatan, Kota
-          Jambi, Indonesia. Tempat ini dikenal sebagai destinasi populer untuk
-          berbagai acara seperti pernikahan, pesta ulang tahun, gathering
-          keluarga, dan acara perusahaan.
+          EV Garden adalah restoran sekaligus venue eksklusif yang terletak di Jl. Marsda Abdurahman Saleh, Paal Merah, Jambi Selatan – jantung kota Jambi. Didesain untuk menghadirkan suasana elegan dan nyaman, EV Garden menjadi pilihan favorit untuk berbagai perayaan penting, mulai dari pesta pernikahan, ulang tahun, hingga gathering keluarga dan acara perusahaan. Jadikan setiap momen tak terlupakan bersama kami
         </p>
       </main>
     </section>
@@ -139,78 +140,189 @@
     <!-- TENTANG KAMI AWAL -->
     <section id="about" class="about">
       <h2><span>Tentang</span> Kami</h2>
-      <h3>EV Garden merupakan salah satu tempat yang bergerak dibidang penyewaan gedung untuk melaksanakan berbagaimacam event, seperti wedding, gathering, seminar, dan lain-lain.
-        dan di EV grden juga terdapat beberapa pilihan menu catering dengan beragam harga yang cocok di kantong segala kalangan dan juga terdapat gedung dengan beragam tipe dan ukuran 
-        adapun gedung indoor dan outdoor yang dapat disesuaikan dengan kebutuhan acara anda.
-        dan di EV garden juga terdapat pilihan paket event yang sudah include dengan fasilitas yang telah di sediakan.</h3>
-
+      <h3>Didirikan pada tahun 2022, EV Garden hadir sebagai destinasi kuliner dan venue acara yang menggabungkan nuansa alam yang asri dengan kenyamanan modern.
+         Berlokasi strategis di Jl. Marsda Abdurahman Saleh, Paal Merah, Kecamatan Jambi Selatan, Kota Jambi, 
+         EV Garden menawarkan pengalaman menyeluruh bagi pengunjung yang ingin bersantai, merayakan momen spesial, atau mengadakan acara profesional.
+        Dengan area outdoor yang hijau dan luas, serta fasilitas indoor yang elegan, EV Garden dirancang untuk mendukung berbagai jenis acara, seperti:
+      <h4><li>Resepsi pernikahan</li></h4></h3>
+      <h4><li>Pesta ulang tahun</li></h4></h3>
+      <h4><li>Acara keluarga dan gathering</li></h4></h3>
+      <h4><li>Event perusahaan dan seminar</li></h4></h3>
+      <h4><li>Paket catering profesional</li></h4></h3>
+      <h4><li>DLL</li></h4></h3>
+      <h3>EV Garden juga menyediakan berbagai pilihan menu hidangan, mulai dari makanan tradisional khas Indonesia hingga hidangan modern yang menggugah selera. 
+        Pelayanan ramah dan suasana yang tenang membuat EV Garden bukan hanya tempat makan, tetapi juga tempat menciptakan kenangan berkesan.
+      Kami terus berinovasi untuk memberikan layanan terbaik dan menjadikan setiap kunjungan Anda sebagai pengalaman yang istimewa.</h3>
       </h3>
-      <!-- penjelasana tentang gedung -->
+      <h3><br>dan EV Garden tempat di mana keindahan arsitektur berpadu harmonis dengan kenyamanan dan fungsi.
+         Kami dengan bangga mempersembahkan fasilitas gedung yang dirancang secara khusus untuk mendukung 
+         berbagai kebutuhan acara Anda — mulai dari pertemuan privat hingga perayaan besar yang tak terlupakan.
+        Melalui penjelasan berikut, kami ingin membawa Anda lebih dekat untuk mengenal setiap sudut 
+        gedung EV Garden: mulai dari desain, kapasitas ruangan, fasilitas pendukung, hingga fleksibilitas 
+        penggunaan untuk berbagai jenis acara. Harapan kami, informasi ini dapat membantu Anda dalam merencanakan 
+        dan mewujudkan momen istimewa dengan lebih mudah dan percaya diri.</br></h3>
+        <h3> <br> Berikut detail gedung di EV Garden :</br> </h3>
+
+     
+        <!-- penjelasana tentang gedung -->
       <div class="row">
         <div class="about-img">
-          <img src="img/gedung/jungle.jpg" alt="" />
+          <ul>1. Gedung Jungle</ul><img src="img/gedung/jungle.jpg" alt="" />
         </div>
         <div class="content">
-          <h3>Gedung jungle</h3>
-          <p>
-            Gedung jungle adalah salah satu gedung indoor yang ada di ev garden, gedung ini memiliki kapasitas 200 orang dan juga terdapat fasilitas yang sudah include seperti sound system, kursi, meja, dan lain-lain.
-            dan juga terdapat pilihan menu catering yang dapat di sesuaikan dengan kebutuhan acara anda. 
-          </p>
+<p>
+Gedung Jungle adalah salah satu gedung indoor yang ada di EV Garden. Gedung ini memiliki kapasitas -/+ 200 orang 
+dan dilengkapi dengan berbagai fasilitas yang sudah termasuk dalam paket, seperti:
+</p>
+<ul>
+  <li>Sound system</li>
+  <li>Kursi lengkap dengan cover dan pita lengkap dengan penataan yang dapat disesuaikan</li>
+  <li>Meja dengan alas dekoratif lengkap dengan penataan yang dapat disesuaikan</li>
+  <li>Proyektor dan infokus</li>
+  <li>Ruangan full AC</li>
+</ul>
+<p>
+Selain fasilitas tersebut, EV Garden juga menyediakan pilihan menu catering yang dapat disesuaikan dengan kebutuhan acara Anda.
+</p>
+<p>
+Gedung ini sangat cocok untuk berbagai jenis acara seperti pesta pernikahan, ulang tahun, seminar, gathering perusahaan,
+ arisan keluarga, hingga workshop. Suasana yang nyaman dan dukungan fasilitas lengkap akan memastikan setiap acara berjalan lancar dan berkesan.
+</p>
+
         </div>
       </div>
       <div class="row">
         <div class="about-img">
-          <img src="img/gedung/taman.jpg" alt="tentang kami" />
+          <ul>2. Taman Outdoor</ul><img src="img/gedung/taman.jpg" alt="tentang kami" />
         </div>
         <div class="content">
-          <h3>Taman outdoor</h3>
           <p>
-            Taman outdoor adalah salah satu gedung outdoor yang ada di ev garden, gedung ini memiliki kapasitas 500+ orang dan juga terdapat fasilitas yang sudah include seperti sound system, kursi, meja, dan lain-lain.
-            dan juga terdapat pilihan menu catering yang dapat di sesuaikan dengan kebutuhan acara anda.
-            dan juga terdapat pilihan paket event yang sudah include dengan fasilitas yang telah di sediakan.
-          </p>
+            Taman Outdoor adalah salah satu area unggulan di EV Garden yang menawarkan suasana alami dan terbuka,
+             ideal untuk berbagai jenis acara berskala besar. Area ini mampu menampung lebih dari 500 orang 
+             dan dirancang untuk memberikan kenyamanan sekaligus nuansa alam yang asri.
+            </p>
+            <p>
+            Berbagai fasilitas sudah termasuk dalam paket penggunaan taman ini, seperti  :
+            </p>
+            <ul>
+              <li>Meja beserta alas dekoratif lengkap dengan penataan yang dapat disesuaikan</li>
+              <li>Kursi lengkap dengan cover dan pita lengkap dengan penataan yang dapat disesuaikan</li>
+              <li>Red Karper</li>
+              <li>Area parkir luas</li>
+              <li>Kipas Angin Blower</li>
+              <li>Lighting Panggung</li>
+            </ul>
+            <p>
+            Taman Outdoor juga didukung dengan pilihan menu catering yang dapat disesuaikan dengan selera dan kebutuhan acara Anda.
+             Selain itu, tersedia paket event lengkap yang mencakup fasilitas dan layanan pendukung lainnya, 
+             sehingga Anda bisa fokus menikmati momen istimewa tanpa repot mengurus detail teknis.
+            </p>
+            <p>
+            Area ini sangat cocok untuk mengadakan acara seperti pesta pernikahan outdoor, konser mini, gathering komunitas, acara perusahaan, hingga festival dan bazar. Dengan kapasitas besar dan pemandangan yang memukau, Taman Outdoor di EV Garden akan menjadikan setiap acara Anda lebih berkesan dan tak terlupakan.
+            </p>
         </div>
       </div>
       <div class="row">
         <div class="about-img">
-          <img src="img/gedung/anggrek.jpg" alt="tentang kami" />
+          <ul>3. Gedung Anggrek</ul><img src="img/gedung/anggrek.jpg" alt="tentang kami" />
         </div>
         <div class="content">
-          <h3>Gedung anggrek</h3>
+          
           <p>
-            Gedung anggrek adalah salah satu gedung indoor yang ada di ev garden, gedung ini memiliki kapasitas 200 orang dan juga terdapat fasilitas yang sudah include seperti sound system, kursi, meja, dan lain-lain.
-            dan juga terdapat pilihan menu catering yang dapat di sesuaikan dengan kebutuhan acara anda.
-            dan juga terdapat pilihan paket event yang sudah include dengan fasilitas yang telah di sediakan.
-            dan fasilitas yang ada di gedung ini juga sangat lengkap seperti toilet, parkir, dan lain-lain.
-          </p>
+            Gedung Anggrek adalah salah satu gedung indoor terbaik yang dimiliki oleh EV Garden. Dengan kapasitas -/+ 300 orang,
+             gedung ini menawarkan area yang lebih luas dan fleksibel dibandingkan gedung lainnya, 
+             sehingga cocok untuk berbagai jenis acara skala menengah seperti pernikahan, seminar, ulang tahun, hingga acara formal dan non-formal lainnya.
+            </p>
+            <p>
+            Gedung ini telah dilengkapi dengan berbagai fasilitas pendukung yang sudah termasuk dalam paket penggunaan, seperti:
+            </p>
+            <ul>
+              <li>Sound system berkualitas</li>
+              <li>Kursi beserta civer dan pita lengkap dengan penataan yang dapat disesuaikan</li>
+              <li>Meja beserta alas dekoratif lengkap dengan penataan yang dapat disesuaikan</li>
+              <li>Ruangan full AC</li>
+              <li>Proyektor dan infokus</li>
+              <li>Red Karpet</li>
+              <li>Area parkir luas</li>
+            </ul>
+            <p>
+            Selain itu, tersedia pilihan menu catering yang dapat disesuaikan dengan kebutuhan dan konsep acara Anda. 
+            Tersedia juga berbagai paket event lengkap yang sudah termasuk seluruh fasilitas penunjang, dekorasi, 
+            serta layanan teknis, sehingga Anda dapat menikmati acara tanpa harus repot mengurus detailnya.
+            </p>
+            <p>
+            Gedung Anggrek hadir sebagai pilihan ideal untuk Anda yang menginginkan ruangan indoor dengan suasana nyaman, 
+            tertata, dan dilengkapi fasilitas modern untuk menyukseskan setiap momen berharga Anda.
+            </p>
         </div>
       </div>
       <div class="row">
         <div class="about-img">
-          <img src="img/gedung/melati.jpg" alt="tentang kami" />
+          <ul>4. Gedung Melati</ul><img src="img/gedung/melati.jpg" alt="tentang kami" />
         </div>
         <div class="content">
-          <h3>Gedung melati</h3>
+          
           <p>
-            Gedung melati adalah salah satu gedung indoor yang ada di ev garden, gedung ini memiliki kapasitas 200 orang dan juga terdapat fasilitas yang sudah include seperti sound system, kursi, meja, dan lain-lain.
-            dan juga terdapat pilihan menu catering yang dapat di sesuaikan dengan kebutuhan acara anda.
-            dan juga terdapat pilihan paket event yang sudah include dengan fasilitas yang telah di sediakan.
-            dan fasilitas yang ada di gedung ini juga sangat lengkap seperti toilet, parkir, dan lain-lain.
-          </p>
+            Gedung Melati merupakan salah satu pilihan gedung indoor yang tersedia di EV Garden dengan kapasitas hingga 100 orang. 
+            Meskipun memiliki ukuran lebih kecil, gedung ini tetap mengutamakan kenyamanan, keindahan tata ruang, dan fungsionalitas, 
+            sehingga sangat ideal untuk acara berskala kecil hingga menengah seperti arisan, rapat, gathering keluarga, atau acara intimate lainnya.
+            </p>
+            <p>
+            Gedung ini telah dilengkapi dengan berbagai fasilitas yang sudah termasuk dalam paket sewa, seperti:
+            </p>
+            <ul>
+              <li>Sound system</li>
+              <li>Kursi beserta civer dan pita lengkap dengan penataan yang dapat disesuaikan</li>
+              <li>Meja beserta alas dekoratif lengkap dengan penataan yang dapat disesuaikan</li>
+              <li>Ruangan ber-AC</li>
+              <li>Proyektor dan infokus</li>
+              <li</li>
+            </ul>
+            <p>
+            Selain itu, tersedia beragam pilihan menu catering yang bisa disesuaikan dengan tema dan kebutuhan acara Anda. 
+            EV Garden juga menyediakan paket event lengkap yang sudah mencakup seluruh kebutuhan acara, dari fasilitas, konsumsi, hingga teknis pelaksanaan.
+            </p>
+            <p>
+            Gedung Melati adalah pilihan sempurna bagi Anda yang menginginkan ruangan indoor yang lebih private namun tetap elegan dan lengkap.
+            </p>
         </div>
       </div>
       <div class="row">
         <div class="about-img">
-          <img src="img/gedung/RMkaca.jpg" alt="tentang kami" />
+          <ul>5. Rumah Kaca</ul><img src="img/gedung/RMkaca.jpg" alt="tentang kami" />
         </div>
         <div class="content">
-          <h3>Rumah Kaca</h3>
+          
           <p>
-            Rumah kaca adalah salah satu gedung indoor yang ada di ev garden, gedung ini memiliki kapasitas 200 orang dan juga terdapat fasilitas yang sudah include seperti sound system, kursi, meja, dan lain-lain.
-            dan juga terdapat pilihan menu catering yang dapat di sesuaikan dengan kebutuhan acara anda.
-            dan juga terdapat pilihan paket event yang sudah include dengan fasilitas yang telah di sediakan.
-            dan fasilitas yang ada di gedung ini juga sangat lengkap seperti toilet, parkir, dan lain-lain.
-          </p>
+            Rumah Kaca adalah salah satu venue eksklusif yang tersedia di EV Garden, 
+            dirancang dengan konsep elegan yang menggabungkan area indoor dan outdoor dalam satu lokasi. 
+            Dengan kapasitas hingga 200 orang, gedung ini sangat fleksibel untuk berbagai jenis acara seperti 
+            pernikahan, pertunangan, seminar, hingga private party.
+            </p>
+            <p>
+            Area indoor dari Rumah Kaca menampilkan desain dinding kaca yang estetik dan modern, 
+            memungkinkan cahaya alami masuk dengan indah, menciptakan suasana hangat dan romantis. 
+            Sementara itu, area outdoor-nya menghadirkan ruang terbuka yang hijau dan segar, 
+            sangat cocok digunakan untuk sesi foto, pelaksanaan akad, atau aktivitas santai para tamu.
+            </p>
+            <p>
+            Berbagai fasilitas yang sudah termasuk dalam penggunaan gedung ini antara lain:
+            </p>
+            <ul>
+              <li>Sound system</li>
+              <li>Kursi lengkap dengan cover dan pita lengkap dengan penataan yang dapat disesuaikan</li>
+              <li>Meja dengan alas dekoratif lengkap dengan penataan yang dapat disesuaikan</li>
+              <li>Ruangan full AC</li>
+              <li>Area parkir yang luas</li>
+              <li>Area Outdoor yang tersedia Saung Duduk yang nyaman</li>
+              <li>Kipas Angin Blower untuk kawasan Outdoor</li>
+            </ul>
+            <p>
+            Selain fasilitas gedung, tersedia juga beragam pilihan menu catering yang dapat disesuaikan dengan kebutuhan dan konsep acara Anda. EV Garden juga menyediakan paket event lengkap yang mencakup semua fasilitas, konsumsi, hingga kebutuhan teknis, sehingga Anda tidak perlu repot mengurus detail acara secara terpisah.
+            </p>
+            <p>
+            Rumah Kaca merupakan pilihan tepat bagi Anda yang menginginkan suasana indoor yang elegan sekaligus pengalaman outdoor yang menyegarkan dalam satu paket lengkap.
+            </p>
         </div>
       </div>
       <!-- penjelasan tentang gedung end -->
@@ -219,7 +331,7 @@
 <!--  -->
 <!--  -->
 <!--  -->
-<!-- Bagian Menu saung -->
+<!-- Bagian Menu saung
 <section id="menu" class="menu">
     <h2><span>menu saung</span> Kami</h2>
     <p>Silakan pilih menu saung favorit Anda di bawah ini.</p>
@@ -270,14 +382,14 @@
         <p>Rp.3K/pcs</p>
       </div>
     </div>
-  </section>
+  </section> -->
   
 <!-- Menu saung  akhir -->
     <!--  -->
     <!--  -->
 <!-- Produk / paket catering -->
  <section class="products" id="products" x-data="products">
-  <h2><span>paket catering</span> kami</h2>
+  <h2>Menu paket Catering &<span> Sewa Gedung </span></h2>
 <p>syarat pemesanan minimal 30 porsi</p>
   <div class="row">
     <template x-for="(item, index) in items" x:key="index"> 
@@ -309,7 +421,7 @@
         </a>
       </div>
       <div class="product-image">
-        <img :src="`img/catering/${item.Image}`" :alt="item.name" />
+        <img :src="`${item.Image}`" :alt="item.name" />
       </div>
       <div class="product-content">
         <h3 x-text="item.name"></h3>
@@ -379,7 +491,7 @@
     <!-- kontak -->
     <section id="contact" class="contact">
       <h2><span>Kontak</span> Kami</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, obcaecati?</p>
+      <p>jika ada yang ingin ditanyakan bisa langsung hubungi kami atau ingin tau lokasi kami bisa langsung cek di map yang sudah kami sediakan</p>
       <div class="row">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.1941003322454!2d103.63360517411928!3d-1.6349264983498628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e258607608a541f%3A0xd4a0bbc1342c4575!2sEV%20Garden!5e0!3m2!1sid!2sid!4v1745254175061!5m2!1sid!2sid" 
         allowfullscreen="" loading="lazy" 
@@ -387,29 +499,32 @@
     </iframe>
     <div x-data="{
       nama: '',
-      email: '',
+      perihal: '',
       telepon: '',
       kirimPesan() {
-          const pesan = `Halo, saya ingin menghubungi anda.%0ANama: ${this.nama}%0AEmail: ${this.email}%0ATelepon: ${this.telepon}`;
-          const url = `https://wa.me/6289602799141?text=${pesan}`;
+          const pesan = `Halo, saya ingin menghubungi anda.%0ANama: ${this.nama}%0APerihal: ${this.prihal}%0ATelepon: ${this.telepon}`;
+          const url = `https://wa.me/6282278466698?text=${pesan}`;
           window.open(url, '_blank');
       }
   }">
-      <form @submit.prevent="kirimPesan">
+      <div x-data="formHandler">
+        <form @submit.prevent="kirimPesan">
           <div class="input-grup">
-              <i data-feather="user"></i>
-              <input type="text" placeholder="nama" x-model="nama">
+            <i data-feather="user"></i>
+            <input type="text" placeholder="Nama" x-model="name" />
           </div>
           <div class="input-grup">
-              <i data-feather="mail"></i>
-              <input type="text" placeholder="email" x-model="email">
+            <i data-feather="mail"></i>
+            <input type="text" placeholder="Perihal" x-model="perihal" />
           </div>
           <div class="input-grup">
-              <i data-feather="phone"></i>
-              <input type="text" placeholder="nomor telepon" x-model="telepon">
+            <i data-feather="phone"></i>
+            <input type="text" placeholder="Nomor Telepon" x-model="phone" />
           </div>
-          <button type="submit" class="btn">kirim pesan</button>
-      </form>
+          <button type="submit" class="btn">Kirim Pesan</button>
+        </form>
+      </div>
+      
   </div>
     <!-- kontak end -->
 <!--  -->
@@ -419,19 +534,19 @@
 
 <footer>
     <div class="socials">
-      <a href="https://www.instagram.com/dipoprimanda--" target="_blank">
+      <a href="https://www.instagram.com/evgardenresto" target="_blank">
         <i data-feather="instagram"></i>
-      <a href=""><i data-feather="twitter"></i></a>
-        <a href=""><i data-feather="facebook"></i></a>
+      <a href="https://wa.me/6285100006666" tabindex="_blank"><i class="fab fa-whatsapp" style="font-size: 25px;"></i></a>
+        <a href="https://www.tiktok.com/@evgarden"><i class="fab fa-tiktok" style="font-size: 21px;"></i></a>
     </div>
     <div class="links">
         <a href="#home">home</a>
         <a href="#about">tentang kami</a>
-        <a href="#menu">menu</a>
-        <a href="#contact">kontak</a>
+        <a href="#products">paket</a>
+        <a href="#contact">kontak Reservasi</a>
     </div>
     <div class="credit">
-        <p>created by <a href="">dipo primanda</a>.|&copy;2025.</p>
+        <p>created by <a href="https://www.instagram.com/dipoprimanda__">dipo primanda</a>.|&copy;2025.</p>
     </div>
 </footer>
 
@@ -450,11 +565,18 @@
     <div class="modal-content">
       <img :src="`img/catering/${selectedItem.Image}`" :alt="selectedItem.name" />
       <div class="product-content">
-        <h3 x-text="selectedItem.name"></h3>
-        <p>terdiri dari menu:</p>
-        <ul>
-
+        <h3 id="nama-menu"></h3>
+        <p>Terdiri Dari Menu:</p>
+        <ul id="list-menu">
           
+          
+        </ul>
+              
+              <!-- Tambahan lainnya seperti gambar, harga, deskripsi -->
+            </div>
+          </template>
+          
+
         </ul>
         <div class="product-stars">
           <i data-feather="star" class="star-full"></i>
@@ -481,7 +603,6 @@
       feather.replace();
 
     </script>
-
     <!-- Import JavaScript lokal -->
     <script src="src/app.js"></script>
 <script src="js/script.js"></script>

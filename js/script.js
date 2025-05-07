@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // const modalsData = [
   //   { buttonClass: ".item-detail-button", modalId: "item-detail-modal" },
-   
+
   // ];
 
   // // =========================

@@ -205,7 +205,6 @@ body {
   margin-top: 1rem;
   padding: 1rem;
   overflow: scroll;
-
 }
 .form-container h5 {
   text-align: center;
@@ -374,6 +373,10 @@ body {
 .about .row .about-img {
   flex: 1 1 45rem;
 }
+.about .row .about-img ul {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 .about .row .about-img img {
   width: 70%;
   height: auto;
@@ -442,6 +445,7 @@ body {
 .products .product-content h3 {
   font-size: 1.5rem;
   margin: 1rem 0;
+  text-align: center;
 }
 .products .product-stars {
   font-size: 1.7rem;
@@ -625,7 +629,7 @@ footer .links a:hover {
 }
 
 footer .credit {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   color: #aaa;
 }
 
@@ -646,8 +650,8 @@ footer .credit a {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.8);
-  
-.modal .active {
+
+  .modal .active {
     display: flex;
   }
 }
@@ -664,7 +668,6 @@ footer .credit a {
   animation: animateModal 0.5s ease-in-out;
   border-radius: 30px;
   margin-top: 8%;
-
 }
 @media screen and (max-width: 768px) {
   .modal-container {
@@ -672,7 +675,6 @@ footer .credit a {
     height: auto;
     margin-top: 5%;
   }
-  
 }
 @media screen and (min-width: 768px) {
   .modal-container {
@@ -680,7 +682,6 @@ footer .credit a {
     height: auto;
     margin-top: 5%;
   }
-  
 }
 .product-content {
   display: flex;
@@ -703,13 +704,10 @@ footer .credit a {
 }
 .modal-container .close-icon {
   position: absolute;
-  right:-16px;
-  top:-17px;
+  right: -16px;
+  top: -17px;
   background: white;
-  border-radius:50px;
-
-  
-  
+  border-radius: 50px;
 }
 .modal-content {
   display: flex;
@@ -717,7 +715,8 @@ footer .credit a {
 }
 
 .modal-content p {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 1.2rem;
   line-height: 1.6;
   margin-top: 1.2rem;
@@ -753,7 +752,7 @@ footer .credit a {
   text-align: center;
   font-size: 1rem;
   text-decoration: none;
-  margin :auto;
+  margin: auto;
 }
 /* ===================== RESPONSIVE DESIGN ===================== */
 
